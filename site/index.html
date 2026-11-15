@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facet - private face analysis in your browser</title>
+<meta name="description" content="Scan your face with your camera and get an honest score, a factor breakdown and practical tips. Everything runs on your device.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>Facet</a>
+    <nav class="nav">
+      <a href="scan.html">Scan</a>
+      <a href="about.html">How it works</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Face analysis that stays on your device</div>
+        <h1>An honest read of your face, and what you can actually improve.</h1>
+        <p class="lead">Facet scans your face through your camera, estimates how a panel of raters would score the photo, and breaks it down into symmetry, balance, skin, eye area and photo conditions, with practical tips for the parts you can change.</p>
+        <div class="btn-row" style="margin-top:28px">
+          <a class="btn" href="scan.html">Start a scan</a>
+          <a class="btn secondary" href="about.html">How the score works</a>
+        </div>
+        <p class="small muted" style="margin-top:18px">No sign-up. No uploads. Takes about 20 seconds.</p>
+      </div>
+      <svg class="hero-art" viewBox="0 0 200 200" aria-hidden="true">
+        <defs>
+          <radialGradient id="g" cx="50%" cy="45%" r="60%">
+            <stop offset="0" stop-color="var(--accent)" stop-opacity=".18"/>
+            <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="96" fill="url(#g)"/>
+        <ellipse cx="100" cy="96" rx="52" ry="68" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="3 4"/>
+        <g fill="var(--accent)">
+          <circle cx="80" cy="82" r="2.2"/><circle cx="120" cy="82" r="2.2"/>
+          <circle cx="72" cy="80" r="1.4"/><circle cx="88" cy="80" r="1.4"/><circle cx="112" cy="80" r="1.4"/><circle cx="128" cy="80" r="1.4"/>
+          <circle cx="70" cy="70" r="1.4"/><circle cx="82" cy="67" r="1.4"/><circle cx="92" cy="70" r="1.4"/>
+          <circle cx="108" cy="70" r="1.4"/><circle cx="118" cy="67" r="1.4"/><circle cx="130" cy="70" r="1.4"/>
+          <circle cx="100" cy="88" r="1.4"/><circle cx="100" cy="100" r="1.4"/><circle cx="100" cy="110" r="2"/>
+          <circle cx="92" cy="112" r="1.4"/><circle cx="108" cy="112" r="1.4"/>
+          <circle cx="86" cy="126" r="1.6"/><circle cx="114" cy="126" r="1.6"/><circle cx="100" cy="123" r="1.4"/><circle cx="100" cy="131" r="1.4"/>
+          <circle cx="100" cy="158" r="1.6"/><circle cx="78" cy="150" r="1.4"/><circle cx="122" cy="150" r="1.4"/>
+          <circle cx="56" cy="100" r="1.4"/><circle cx="144" cy="100" r="1.4"/><circle cx="62" cy="128" r="1.4"/><circle cx="138" cy="128" r="1.4"/>
+        </g>
+        <path d="M100 30v140" stroke="var(--accent)" stroke-width=".8" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+
+  <section style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        <div class="card">
+          <div class="step-num">1</div>
+          <h3>Scan</h3>
+          <p class="muted">Your camera finds 478 points on your face. Guides help you get good light and a straight angle, then it averages 8 frames for a steady reading.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">2</div>
+          <h3>Measure</h3>
+          <p class="muted">It measures symmetry, proportions, skin texture and evenness, the under-eye area and photo quality, and compares them with 5,500 faces from a published research dataset.</p>
+        </div>
+        <div class="card">
+          <div class="step-num">3</div>
+          <h3>Improve</h3>
+          <p class="muted">You get a score with an honest margin of error, a breakdown that separates what you can change from what you cannot, and tips ordered by impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="grid grid-2">
+        <div>
+          <h2>Private by design</h2>
+          <p class="muted">All analysis runs inside your browser using on-device models. Your camera feed and photos never leave your device. There are no accounts and no tracking. Results are kept only in the current tab and are gone when you close it.</p>
+          <a href="privacy.html">Read the privacy details</a>
+        </div>
+        <div>
+          <h2>Honest about its limits</h2>
+          <p class="muted">Attractiveness ratings are subjective. The model learned from a panel of 60 raters scoring photos of Asian and Caucasian adults, so it carries their tastes and biases. Treat the score as a curiosity, and focus on the tips.</p>
+          <a href="about.html">Accuracy and limitations</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="card" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px">
+        <div>
+          <h2 style="margin-bottom:.2em">Ready when you are</h2>
+          <p class="muted" style="margin:0">Good light and a straight angle give the most accurate result.</p>
+        </div>
+        <a class="btn" href="scan.html">Start a scan</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Facet. A student project by Pamithu Dulwan.</span>
+    <span>For fun and self-reflection only. Not medical or professional advice.</span>
+  </div>
+</footer>
+</body>
+</html>

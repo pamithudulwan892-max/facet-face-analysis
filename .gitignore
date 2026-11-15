@@ -1,0 +1,13 @@
+# dataset and intermediate files (large, and the dataset has its own licence)
+data/raw/
+data/pkg/
+data/scratch/
+data/landmarks/
+data/*.tgz
+data/geometry.csv
+data/shape.csv
+
+__pycache__/
+.claude/
+.vscode/
+*.log

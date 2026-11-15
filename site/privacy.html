@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy - Facet</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>Facet</a>
+    <nav class="nav">
+      <a href="scan.html">Scan</a>
+      <a href="about.html">How it works</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow" style="padding:48px 20px 64px">
+  <h1 style="font-size:2.2rem">Privacy</h1>
+  <p class="lead muted">Short version: your face never leaves your device.</p>
+
+  <h2 style="margin-top:36px">What happens to your camera feed</h2>
+  <p>The camera stream goes straight into models that run inside your browser (MediaPipe Face Landmarker and a MobileNet image embedder, both loaded from this site). Every calculation happens on your device. No image, video frame, landmark or score is sent to any server.</p>
+
+  <h2>What is kept</h2>
+  <p>After a scan, the numbers on the results page (scores, ratios and the landmark map) are saved in your browser's session storage so the results page can show them. Session storage belongs to the current tab and is wiped when you close it. You can also delete it straight away with the "Delete these results" button. No photo is ever stored.</p>
+
+  <h2>What is not used</h2>
+  <ul>
+    <li>No accounts, sign-ups or email addresses.</li>
+    <li>No cookies, analytics, ads or third-party scripts.</li>
+    <li>No face recognition. Facet does not try to identify who you are and keeps nothing that could be matched to you later.</li>
+  </ul>
+
+  <h2>Photos you upload</h2>
+  <p>"Use a photo instead" opens the image locally in your browser. It is not uploaded. Only upload photos of yourself, and do not use Facet to score other people without their consent.</p>
+
+  <h2>Age</h2>
+  <p>Facet is meant for people aged 16 and over. Appearance scores can be upsetting, so please use it in the spirit it is meant: a light, curious look at a model's opinion, plus some practical tips.</p>
+
+  <h2>Checking this yourself</h2>
+  <p>Open your browser's developer tools, go to the Network tab and run a scan. After the page and models load, no further requests are made. The full source code is available in the project repository.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Facet. A student project by Pamithu Dulwan.</span>
+    <span>For fun and self-reflection only. Not medical or professional advice.</span>
+  </div>
+</footer>
+</body>
+</html>

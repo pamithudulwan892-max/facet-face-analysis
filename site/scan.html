@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scan your face - Facet</title>
+<meta name="description" content="Scan your face with your camera. Analysis runs entirely in your browser.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>Facet</a>
+    <nav class="nav">
+      <a href="scan.html" aria-current="page">Scan</a>
+      <a href="about.html">How it works</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="scan-layout">
+    <div>
+      <div class="stage" id="stage">
+        <video id="video" class="mirror hidden" playsinline muted></video>
+        <img id="still" class="still hidden" alt="Your uploaded photo">
+        <canvas id="overlay" class="overlay mirror"></canvas>
+        <div class="placeholder" id="placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="11" r="3.2"/><path d="M7 18c.9-2.2 2.8-3.4 5-3.4s4.1 1.2 5 3.4"/></svg>
+          <div id="placeholderText">Your camera preview will appear here</div>
+        </div>
+        <svg class="progress-ring hidden" id="ring" viewBox="0 0 44 44"><circle cx="22" cy="22" r="19" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="4"/><circle id="ringArc" cx="22" cy="22" r="19" fill="none" stroke="#6cc0a5" stroke-width="4" stroke-linecap="round" stroke-dasharray="119.4" stroke-dashoffset="119.4" transform="rotate(-90 22 22)"/></svg>
+        <div class="stage-msg hidden" id="msg"></div>
+      </div>
+      <p class="muted small" style="margin-top:12px">The preview is mirrored like a selfie camera. Nothing you see here leaves this device.</p>
+    </div>
+
+    <div>
+      <div id="intro">
+        <h1 style="font-size:1.9rem">Scan your face</h1>
+        <div class="notice" style="margin-bottom:20px">
+          <strong>Before you start.</strong> Your camera feed is analysed on this device by models running in your browser. No photo or video is uploaded or saved. The score is an estimate from a model trained on other people's ratings, not a measure of your worth.
+        </div>
+        <ol class="small muted" style="padding-left:18px;margin:0 0 20px">
+          <li>Face a window or a lamp so your face is evenly lit.</li>
+          <li>Hold the camera at eye level, about an arm's length away.</li>
+          <li>Remove glasses if you can, keep hair off your face, and look straight at the lens.</li>
+        </ol>
+        <div class="btn-row">
+          <button class="btn" id="startBtn">Start camera</button>
+          <label class="btn secondary file-label">Use a photo instead
+            <input type="file" id="fileInput" accept="image/*">
+          </label>
+        </div>
+        <p class="small muted" style="margin-top:16px">By continuing you confirm you are 16 or older and scanning your own face.</p>
+        <p class="small" id="loadState" aria-live="polite"></p>
+      </div>
+
+      <div id="live" class="hidden">
+        <h2>Line up your face</h2>
+        <p class="muted small">The scan starts by itself once every check is green and you hold still for a moment.</p>
+        <ul class="checks" id="checks">
+          <li data-check="face">One face in view</li>
+          <li data-check="size">Close enough (face fills the oval)</li>
+          <li data-check="center">Centred in the frame</li>
+          <li data-check="straight">Looking straight at the camera</li>
+          <li data-check="light">Enough light on your face</li>
+          <li data-check="still">Holding still</li>
+        </ul>
+        <div class="btn-row">
+          <button class="btn" id="scanNow" disabled>Scan now</button>
+          <button class="btn secondary" id="stopBtn">Stop camera</button>
+        </div>
+      </div>
+
+      <div id="working" class="hidden">
+        <h2>Analysing</h2>
+        <p class="muted" id="workingText">Measuring landmarks, skin and image quality...</p>
+      </div>
+
+      <div id="error" class="hidden">
+        <div class="notice warn" id="errorText"></div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" id="retryBtn">Try again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Facet. A student project by Pamithu Dulwan.</span>
+    <span>For fun and self-reflection only. Not medical or professional advice.</span>
+  </div>
+</footer>
+<script type="module" src="js/scan.js"></script>
+</body>
+</html>

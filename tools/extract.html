@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dataset builder</title>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 24px; }
+  #log { white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 12px; max-height: 60vh; overflow: auto; }
+</style>
+</head>
+<body>
+<h1>SCUT-FBP5500 feature extraction</h1>
+<p>Runs MediaPipe on every dataset image in this browser and saves the results to <code>data/landmarks/</code>.</p>
+<p id="status">Loading models...</p>
+<div id="log"></div>
+<script type="module" src="extract.js"></script>
+</body>
+</html>

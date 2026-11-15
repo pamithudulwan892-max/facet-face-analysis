@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How it works - Facet</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>Facet</a>
+    <nav class="nav">
+      <a href="scan.html">Scan</a>
+      <a href="about.html" aria-current="page">How it works</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap narrow" style="padding:48px 20px 64px">
+  <div class="eyebrow">About the model</div>
+  <h1 style="font-size:2.2rem">How the score works</h1>
+  <p class="lead muted">What Facet measures, what it learned from, how accurate it is, and where it goes wrong.</p>
+
+  <h2 style="margin-top:40px">Accuracy</h2>
+  <p>Tested on the 2,200 faces the model never saw during training (the dataset's official 60/40 split):</p>
+  <div class="kpis" id="kpis"><div class="kpi"><div class="v">...</div><div class="l">Loading</div></div></div>
+  <p class="small muted" style="margin-top:12px">Correlation measures how closely the model's ranking of faces follows the raters' average ranking (1.0 would be perfect). The average error is on the dataset's 1 to 5 rating scale. Published deep-learning models on this dataset reach around 0.90 correlation, so this lighter in-browser model gives up some accuracy in exchange for privacy and speed.</p>
+
+  <h3 style="margin-top:28px">Accuracy by group</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Group in test set</th><th class="num">Faces</th><th class="num">Correlation</th><th class="num">Average error</th></tr></thead>
+      <tbody id="groups"></tbody>
+    </table>
+  </div>
+
+  <h3 style="margin-top:28px">What each part of the model adds</h3>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Features used</th><th class="num">Inputs</th><th class="num">Test correlation</th></tr></thead>
+      <tbody id="baselines"></tbody>
+    </table>
+  </div>
+
+  <h2 style="margin-top:40px">The pipeline</h2>
+  <ol>
+    <li><strong>Find the face.</strong> MediaPipe Face Landmarker places 478 points on your face in real time.</li>
+    <li><strong>Normalise.</strong> The face is rotated so the eyes are level and scaled so the distance between the eyes is 1. This removes camera distance and head tilt.</li>
+    <li><strong>Measure.</strong> From the points it computes 18 geometric features (ratios, angles and symmetry). From an aligned 256 by 256 crop it measures skin texture, blotchiness, redness and under-eye contrast, and image brightness, sharpness and lighting balance.</li>
+    <li><strong>Describe the overall look.</strong> A MobileNet V3 network turns the aligned crop into a 1,280-number description (an embedding) of the face's overall appearance.</li>
+    <li><strong>Predict.</strong> A ridge regression model, trained in Python with scikit-learn, combines the embedding, the landmark shape and the measured features into a predicted rating. That rating is mapped from the 1 to 5 scale onto 1 to 10.</li>
+    <li><strong>Average.</strong> Camera scans average 8 frames to reduce noise.</li>
+  </ol>
+  <p>The breakdown scores are percentiles: a skin clarity score of 70 means your measured skin values are smoother than about 70% of faces in the dataset. Facial balance compares your proportions with the dataset average, because studies of facial attractiveness repeatedly find that "average" proportions are rated highly.</p>
+
+  <h2 style="margin-top:40px">The dataset</h2>
+  <p>The model was trained on <strong>SCUT-FBP5500</strong>, a public research benchmark for facial beauty prediction released by the South China University of Technology. It contains 5,500 frontal photos (2,000 Asian women, 2,000 Asian men, 750 Caucasian women and 750 Caucasian men, aged 15 to 60), each rated from 1 to 5 by 60 volunteers. The score each face is trained on is the average of those ratings.</p>
+  <p class="small muted">Liang, L., Lin, L., Jin, L., Xie, D. and Li, M. (2018). SCUT-FBP5500: A Diverse Benchmark Dataset for Multi-Paradigm Facial Beauty Prediction. ICPR 2018. The dataset is released for non-commercial research use only, so Facet is a non-commercial student project.</p>
+  <p>Why not scrape photos from the web? Collecting faces of people who never agreed to it would gather sensitive biometric data without consent and break most websites' terms of use. A published dataset with consented, documented ratings is the responsible choice, and it makes the results reproducible.</p>
+
+  <h2 style="margin-top:40px">Limitations and bias</h2>
+  <ul>
+    <li><strong>Narrow population.</strong> The dataset only has Asian and Caucasian faces. People of South Asian, African, Middle Eastern, Latino and other backgrounds are not represented, so the score is less reliable for them and may be unfairly low or high.</li>
+    <li><strong>Narrow raters.</strong> 60 volunteers, mostly young Chinese university students, did the rating. Their taste is not universal.</li>
+    <li><strong>Studio photos versus webcams.</strong> The dataset photos are well-lit and fairly sharp. Webcam noise, harsh light and phone beauty filters all shift the measurements.</li>
+    <li><strong>Mostly neutral, front-facing photos.</strong> Most training faces look straight at the camera with a relaxed expression. Big smiles, tilted heads and glasses are less common in the data, and they shift symmetry and proportion measurements.</li>
+    <li><strong>It is still an opinion.</strong> Attractiveness is subjective and depends on culture, personality, voice and expression. A single number cannot capture that.</li>
+  </ul>
+
+  <h2 style="margin-top:40px">Built with</h2>
+  <p class="muted">MediaPipe Tasks Vision (Face Landmarker, Image Embedder), plain JavaScript, HTML and CSS. Training in Python with NumPy, pandas and scikit-learn. No frameworks, no server.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>Facet. A student project by Pamithu Dulwan.</span>
+    <span>For fun and self-reflection only. Not medical or professional advice.</span>
+  </div>
+</footer>
+<script type="module" src="js/about.js"></script>
+</body>
+</html>

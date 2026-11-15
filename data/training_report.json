@@ -1,0 +1,91 @@
+{
+  "chosen": "embedding+shape+geometry+skin",
+  "alpha": 1000,
+  "test_split": "official 60% train / 40% test",
+  "test_pcc": 0.8478,
+  "test_mae": 0.2782,
+  "test_rmse": 0.3603,
+  "cv5_pcc_all": 0.8461,
+  "cv5_mae_all": 0.2818,
+  "n_faces": 5500,
+  "groups": {
+    "Asian female": {
+      "n": 792,
+      "pcc": 0.843,
+      "mae": 0.297
+    },
+    "Asian male": {
+      "n": 811,
+      "pcc": 0.861,
+      "mae": 0.251
+    },
+    "Caucasian female": {
+      "n": 285,
+      "pcc": 0.825,
+      "mae": 0.317
+    },
+    "Caucasian male": {
+      "n": 312,
+      "pcc": 0.836,
+      "mae": 0.266
+    }
+  },
+  "baselines": {
+    "geometry": {
+      "alpha": 1,
+      "cv_pcc": 0.7014,
+      "n_features": 18,
+      "test_pcc": 0.7001,
+      "test_mae": 0.3803,
+      "test_rmse": 0.4846
+    },
+    "skin": {
+      "alpha": 1,
+      "cv_pcc": 0.4203,
+      "n_features": 5,
+      "test_pcc": 0.3912,
+      "test_mae": 0.4942,
+      "test_rmse": 0.625
+    },
+    "geometry+skin": {
+      "alpha": 10,
+      "cv_pcc": 0.7223,
+      "n_features": 23,
+      "test_pcc": 0.7122,
+      "test_mae": 0.37,
+      "test_rmse": 0.4764
+    },
+    "shape": {
+      "alpha": 1,
+      "cv_pcc": 0.779,
+      "n_features": 956,
+      "test_pcc": 0.7866,
+      "test_mae": 0.3257,
+      "test_rmse": 0.42
+    },
+    "shape+geometry+skin": {
+      "alpha": 1,
+      "cv_pcc": 0.796,
+      "n_features": 979,
+      "test_pcc": 0.7992,
+      "test_mae": 0.315,
+      "test_rmse": 0.4086
+    },
+    "embedding": {
+      "alpha": 1000,
+      "cv_pcc": 0.7827,
+      "n_features": 1280,
+      "test_pcc": 0.7972,
+      "test_mae": 0.3175,
+      "test_rmse": 0.41
+    },
+    "embedding+shape+geometry+skin": {
+      "alpha": 1000,
+      "cv_pcc": 0.8352,
+      "n_features": 2259,
+      "test_pcc": 0.8478,
+      "test_mae": 0.2782,
+      "test_rmse": 0.3603
+    }
+  }
+}
