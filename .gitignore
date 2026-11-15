@@ -11,3 +11,4 @@ __pycache__/
 .claude/
 .vscode/
 *.log
+LINKEDIN_POST.md
