@@ -1,5 +1,7 @@
 # Facet - face analysis in the browser
 
+**Live demo:** https://facet-face-analysis.vercel.app
+
 Facet is a website that scans your face through your camera, estimates how a panel of raters would score the photo, and breaks the result down into symmetry, facial balance, skin clarity, the eye area and photo conditions. It then gives practical tips for the parts you can actually change.
 
 Everything runs on your device. The camera feed is processed by models running in the browser, and no image or measurement is sent to a server.
