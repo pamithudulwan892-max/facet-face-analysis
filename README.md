@@ -6,6 +6,14 @@ Facet is a website that scans your face through your camera, estimates how a pan
 
 Everything runs on your device. The camera feed is processed by models running in the browser, and no image or measurement is sent to a server.
 
+| Home | Live scan (AI-generated test face) |
+|---|---|
+| ![Home](docs/home.png) | ![Scan](docs/scan.png) |
+| **Results** | **Breakdown** |
+| ![Results](docs/results.png) | ![Breakdown](docs/breakdown.png) |
+
+The screenshots and demo video use an AI-generated face (public domain, from Wikimedia Commons), not a real person.
+
 ## Features
 
 - Live camera scan with on-screen guidance (distance, centring, head angle, light, holding still) that starts automatically when the face is lined up, and averages 8 frames
