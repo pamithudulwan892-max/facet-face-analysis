@@ -87,3 +87,7 @@ data/            training report and landmark pair list
 ## Built with
 
 MediaPipe Tasks Vision, plain HTML, CSS and JavaScript, Python, NumPy, pandas and scikit-learn.
+
+## Licence
+
+Code: MIT. The trained model (`site/models/model.json`) is for non-commercial use only, because it was trained on SCUT-FBP5500. MediaPipe files are Apache 2.0.
